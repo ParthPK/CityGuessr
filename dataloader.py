@@ -11,7 +11,7 @@ transform = transforms.Compose([
     transforms.ToTensor()
 ])
 
-class YouTubeVideoDataset(Dataset):
+class CityGuessrDataset(Dataset):
     def __init__(self, txt_file, transform=None):
         self.txt_file = txt_file
         self.transform = transform
@@ -61,7 +61,7 @@ class YouTubeVideoDataset(Dataset):
         frames = []
         frame_count = 0
         for frame_file in sorted(os.listdir(file_path)):
-            if frame_count % 5 != 0:
+            if frame_count % 5 == 0:
                 frame_path = os.path.join(file_path, frame_file)
                 frame = cv2.imread(frame_path)
                 frame = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)  # Convert BGR to RGB
