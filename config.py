@@ -7,29 +7,26 @@ def get_opt():
     opt.device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
     opt.num_workers = 10
 
-    opt.num_epochs = 30
+    opt.num_epochs = 12
     opt.learning_rate = 1e-3
     opt.batch_size = 12
 
-    opt.model = "VanillaTextScenes"
+    opt.model = "TextScenes"
     opt.description = f"{opt.model}"
 
     opt.eval_every = 1  # Epochs (Evaluate)
     opt.log_every = 10  # Batches (Log Loss)
 
-    opt.mode = "eval" # "train" or "eval"
-    opt.resume = True # True or False
-    opt.checkpoint = "model_best.pth.tar"
+    opt.mode = "train" # "train" or "eval"
+    opt.resume = False # True or False
+    opt.checkpoint = " " #path to checkpoint
     
-    opt.hierarchical_mode = 'independent'
+    opt.hierarchical_mode = 'codependent' #independent or codependent
 
     # Data Files
-    #opt.txt_file = "misc/train_sf.txt"
-    opt.txt_file = "misc/train_mean_text_soft_w_16_scenes.txt"
-    #opt.val_txt_file = "misc/test.txt"
-    opt.val_txt_file = "misc/val_labels_w_16_scenes.txt"
-    #opt.val_txt_file = "misc/mapilliary_val_majority_w_16_scenes.txt"
-    opt.key_file = "misc/mapilliary_sequence_keys.txt"
+    opt.txt_file = " " #path to train txt file
+    opt.val_txt_file = " " #path to val txt file
+    opt.key_file = " " #for MSLS sequnce keys
 
     return opt
 
